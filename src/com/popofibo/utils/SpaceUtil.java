@@ -73,13 +73,19 @@ public class SpaceUtil {
 				// If an Object Array of Properties - added additional check to
 				// avoid getBytes returning a byte[] and process
 				if (method.getReturnType().isArray()
+						&& !method.getReturnType().isPrimitive()
 						&& !method.getReturnType().equals(String[].class)
 						&& !method.getReturnType().equals(byte[].class)) {
-					Object[] objectArray = (Object[]) method.invoke(object);
-					if (objectArray != null) {
-						for (Object obj : (Object[]) objectArray) {
-							// Recursively revisit with the current property
-							trimReflective(obj);
+					System.out.println(method.getReturnType());
+					// Type check for primitive arrays (would fail typecasting
+					// in case of int[], char[] etc)
+					if (method.invoke(object) instanceof Object[]) {
+						Object[] objectArray = (Object[]) method.invoke(object);
+						if (objectArray != null) {
+							for (Object obj : (Object[]) objectArray) {
+								// Recursively revisit with the current property
+								trimReflective(obj);
+							}
 						}
 					}
 				}
