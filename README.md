@@ -2,7 +2,8 @@ TrimObjectGraph
 ===============
 
 Trims all Strings encountered within an Object graph recursively. 
-This utility uses Java Reflection API to treverse through an object graph with disciplined syntax of getters and setters and recursively trims the String properties.
+
+This utility uses Java Reflection API to traverse through an object graph with disciplined syntax of getters and setters and recursively trims the String properties.
 
 1. If the current level of `Property` is of type `String`
 2. If its an `Object` Array of Properties
