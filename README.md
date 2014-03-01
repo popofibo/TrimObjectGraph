@@ -10,10 +10,9 @@ This utility uses Java Reflection API to treverse through an object graph with d
 4. If its a type of Java `Collection` class
 5. Separate placement for `Map` with special conditions to process its `keys` and `values`
 
-Next Steps
-==========
+**Next Steps**
 
 1. Handle undisciplined syntax of properties (invalid getters/setters)
-2. Handle chained Collections: for example, List<List<Person>>
-3. Guava collection library support
+2. Handle chained Collections: for example, `List<List<Person>>`
+3. `Guava` collection library support
 
